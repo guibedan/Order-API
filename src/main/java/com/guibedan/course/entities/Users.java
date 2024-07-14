@@ -36,7 +36,7 @@ public class Users implements Serializable {
 
 	@Column(nullable = false)
 	private String password;
-	
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "client")
 	private List<Order> orders = new ArrayList<>();
@@ -55,7 +55,7 @@ public class Users implements Serializable {
 	public Long getId() {
 		return id;
 	}
-	
+
 	public String getName() {
 		return name;
 	}

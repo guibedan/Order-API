@@ -18,10 +18,10 @@ public class UserRepositoryTest {
 
 	@Autowired
 	UserRepository userRepository;
-	
+
 	@Autowired
 	EntityManager entityManager;
-	
+
 	@Test
 	@DisplayName("Should get User successfully from DB")
 	void findByIdCase1() {
@@ -29,22 +29,22 @@ public class UserRepositoryTest {
 		this.createUser(user);
 
 		Optional<Users> foundUser = userRepository.findById(user.getId());
-		
+
 		assertThat(foundUser.isPresent()).isTrue();
 	}
-	
+
 	@Test
 	@DisplayName("Should not get User from DB when user not exists")
 	void findByIdCase2() {
 
 		Optional<Users> foundUser = userRepository.findById(1L);
-		
+
 		assertThat(foundUser.isEmpty()).isTrue();
 	}
-	
+
 	private Users createUser(Users user) {
 		this.entityManager.persist(user);
 		return user;
 	}
-	
+
 }

@@ -27,12 +27,13 @@ public class Category implements Serializable {
 
 	@Column(nullable = false)
 	private String name;
-	
+
 	@JsonIgnore
 	@ManyToMany(mappedBy = "categories")
 	private Set<Product> products = new HashSet<Product>();
-	
-	public Category() {}
+
+	public Category() {
+	}
 
 	public Category(Long id, String name) {
 		this.id = id;
@@ -79,5 +80,5 @@ public class Category implements Serializable {
 		Category other = (Category) obj;
 		return Objects.equals(id, other.id);
 	}
-	
+
 }

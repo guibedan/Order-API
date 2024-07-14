@@ -71,9 +71,10 @@ public class UserResource {
 
 		return ResponseEntity.status(HttpStatus.OK).body(res);
 	}
-	
+
 	@PutMapping("/{id}")
-	public ResponseEntity<Response<Users>> updateUserById(@PathVariable(value = "id") Long id, @RequestBody Users userBody) {
+	public ResponseEntity<Response<Users>> updateUserById(@PathVariable(value = "id") Long id,
+			@RequestBody Users userBody) {
 		Response<Users> res = new Response<Users>();
 		userService.findById(id);
 
@@ -85,5 +86,5 @@ public class UserResource {
 
 		return ResponseEntity.status(HttpStatus.OK).body(res);
 	}
-	
+
 }

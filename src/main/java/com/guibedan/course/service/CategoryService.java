@@ -17,7 +17,7 @@ public class CategoryService {
 
 	@Autowired
 	CategoryRepository categoryRepository;
-	
+
 	public List<Map<String, Object>> findAllCategoryWithProducts() {
 		List<Object[]> products = categoryRepository.findAllCategoryWithProducts();
 		List<Map<String, Object>> result = new ArrayList<>();
@@ -36,13 +36,13 @@ public class CategoryService {
 
 		return result;
 	}
-	
+
 	public List<Category> findAll() {
 		return categoryRepository.findAll();
 	}
-	
+
 	public Optional<Category> findById(Long id) {
 		return categoryRepository.findById(id);
 	}
-	
+
 }

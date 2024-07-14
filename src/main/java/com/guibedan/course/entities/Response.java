@@ -6,9 +6,10 @@ public class Response<T> {
 	private boolean success;
 	private int status;
 	private T content;
-	
-	public Response() {}
-	
+
+	public Response() {
+	}
+
 	public Response(String message, boolean success, int status, T content) {
 		this.message = message;
 		this.success = success;
@@ -52,5 +53,5 @@ public class Response<T> {
 	public String toString() {
 		return "Response [message=" + message + ", success=" + success + ", status=" + status + "]";
 	}
-	
+
 }

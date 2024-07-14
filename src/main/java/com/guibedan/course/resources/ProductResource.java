@@ -16,28 +16,27 @@ import com.guibedan.course.entities.Product;
 import com.guibedan.course.entities.Response;
 import com.guibedan.course.service.ProductService;
 
-
 @RestController
 @RequestMapping("/product")
 public class ProductResource {
 
 	@Autowired
 	ProductService productService;
-	
+
 	@GetMapping("/categories")
-	public ResponseEntity<Response<List<Map<String, Object>>> > findAllWithCategories() {
+	public ResponseEntity<Response<List<Map<String, Object>>>> findAllWithCategories() {
 		List<Map<String, Object>> list = productService.findAllWithCategories();
 		Response<List<Map<String, Object>>> res = new Response<>("Lista de produtos cadastrados!", true, 200, list);
 		return ResponseEntity.status(HttpStatus.OK).body(res);
 	}
-	
+
 	@GetMapping
 	public ResponseEntity<Response<List<Product>>> findAll() {
 		List<Product> list = productService.findAll();
 		Response<List<Product>> res = new Response<>("Lista de produtos cadastrados!", true, 200, list);
 		return ResponseEntity.status(HttpStatus.OK).body(res);
 	}
-	
+
 	@GetMapping("/{id}")
 	public ResponseEntity<Response<Product>> findById(@PathVariable(value = "id") Long id) {
 		Response<Product> res = new Response<>();
@@ -58,5 +57,5 @@ public class ProductResource {
 
 		return ResponseEntity.status(HttpStatus.OK).body(res);
 	}
-	
+
 }
